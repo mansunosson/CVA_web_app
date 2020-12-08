@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<h1>
+	Credit Valuation Adjustment
+	</h1>
+	<div class"content-section">
+		<form method = "POST" action ="">
+			{{ form.hidden_tag() }}
+			<fieldset class = "form-group">
+				<legend class="border-bottom mb-4">Evaluate Credit</legend>
+				<div class= "form-group">
+					{{ form.companyname.label("Company name:") }}
+					{{ form.companyname(class = "form-control form-control-lg") }}
+				<div>
+				<div class= "form-group">
+					{{ form.maturity.label("Due (YYYY-MM-DD):  ") }}
+					{{ form.maturity(class = "form-control form-control-lg") }}
+				<div>
+				<div class= "form-group">
+					{{ form.facevalue.label("Invoice amount: ") }}
+					{{ form.facevalue(class = "form-control form-control-lg") }}
+				<div>
+				<div class= "form-group">
+					{{ form.adjvalue.label("Credit value: ") }}
+					{% with messages = get_flashed_messages() %}
+						<ul class=flashes>
+						{% for message in messages %}
+							<li>{{ message }}</li>
+						{% endfor %}
+						</ul>
+					{% endwith %}
+				<div>
+			</fieldset>
+			<div class="form-group">
+				{{ form.submit(class="btn btn-outline-info") }}
+			</div>
+		</form>
+	</div>
+</html>
